@@ -503,7 +503,7 @@ public class SseServiceImpl implements ISseService {
         try {
             String text = URLEncoder.encode(msg);
             okhttp3.MediaType mediaType = okhttp3.MediaType.parse("application/x-www-form-urlencoded");
-            RequestBody body = RequestBody.create(mediaType, "text=" + text);
+            RequestBody body = RequestBody.create("text=" + text,mediaType);
             Request request = new Request.Builder()
                 .url("https://aip.baidubce.com/rest/2.0/solution/v1/text_censor/v2/user_defined?access_token=" + getAccessToken())
                 .method("POST", body)
