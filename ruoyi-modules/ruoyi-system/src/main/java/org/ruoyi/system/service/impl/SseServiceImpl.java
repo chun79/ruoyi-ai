@@ -501,7 +501,7 @@ public class SseServiceImpl implements ISseService {
     public String textReview(String msg) {
         String conclusionType = "";
         try {
-            String text = URLEncoder.encode(msg);
+            String text = URLEncoder.encode(msg,"UTF-8");
             okhttp3.MediaType mediaType = okhttp3.MediaType.parse("application/x-www-form-urlencoded");
             RequestBody body = RequestBody.create("text=" + text,mediaType);
             Request request = new Request.Builder()
